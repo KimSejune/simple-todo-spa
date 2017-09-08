@@ -10,11 +10,13 @@ app.use(morgan('tiny'))
 app.use(express.static('public'))
 
 app.get('/api/todos', (req, res) => {
+  // data.js에 있는 todos를 json 형식으로 보낸다.
   res.send(data.todos)
 })
 
 app.post('/api/todos', jsonMiddleware, (req, res) => {
   const {title} = req.body
+
   if (title) {
     const todo = data.addTodo({title})
     res.send(todo)

@@ -26,6 +26,7 @@ app.post('/api/todos', jsonMiddleware, (req, res) => {
   }
 })
 
+// 값을 추가해주는 명령
 app.patch('/api/todos/:id', jsonMiddleware, (req, res) => {
   let id;
   try {
@@ -50,6 +51,21 @@ app.delete('/api/todos/:id', jsonMiddleware, (req, res) => {
   }
   data.deleteTodo(id)
   res.end()
+})
+
+app.put('/api/todos/:id', jsonMiddleware, (req, res) => {
+  let id;
+  const changeTitle = req.body.title
+  try {
+    id = parseInt(req.params.id)
+  }catch(e){
+    res.status(400)
+    res.end()
+    return
+  }
+
+  const todo = data.updateTodoItem(id, changeTitle)
+  res.send(todo)
 })
 
 app.listen(3000, () => {

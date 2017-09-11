@@ -39,9 +39,20 @@ function deleteTodo(id) {
   }
 }
 
+function updateTodoItem(id, changeTitle) {
+  const todo = todos.find(item => item.id === id)
+  if(todo){
+    console.log('changeTitle' + changeTitle)
+    todo.title = changeTitle
+  }else {
+    throw new Error('해당 id를 갖는 요소가 없습니다.')
+  }
+}
+
 module.exports = {
   todos,
   addTodo,
   updateTodo,
-  deleteTodo
+  deleteTodo,
+  updateTodoItem
 }

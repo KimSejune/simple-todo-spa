@@ -20,13 +20,19 @@ html, body {
   cursor: pointer;
 }
 
-.todo-remove {
+.todo-remove, .todo-update  {
   display: none;
   cursor: pointer;
   float: right;
   color: grey;
+  margin-right: 10px;
 }
 
 .todo-item:hover .todo-remove {
+  display: inline;
+}
+
+
+.todo-item:hover .todo-update {
   display: inline;
 }

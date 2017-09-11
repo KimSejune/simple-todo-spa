@@ -5,9 +5,10 @@
       <% if (todo.complete) { %>
         <strike><%= todo.title %></strike>
       <% } else { %>
-        <%= todo.title %>
+        <input class="todo-item-update" value = "<%= todo.title %>"  style="background-color:transparent; border:none;">
       <% } %>
       <i class="todo-remove fa fa-remove"></i>
+      <i class="todo-update fa fa-check"></i>
     </div>
   <% }) %>
 </div>
